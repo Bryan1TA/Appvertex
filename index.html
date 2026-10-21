@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#08152b">
+  <meta name="description" content="VERTEX — plataforma de mobilidade inteligente e acessibilidade.">
+  <title>VERTEX | Intelligent Mobility</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <!-- LOGIN -->
+  <section id="loginScreen" class="login-screen">
+    <div class="login-decoration decoration-one"></div>
+    <div class="login-decoration decoration-two"></div>
+
+    <div class="login-brand">
+      <span class="brand-symbol">V</span>
+      <div>
+        <strong>VERTEX</strong>
+        <small>INTELLIGENT MOBILITY</small>
+      </div>
+    </div>
+
+    <div class="login-layout">
+      <div class="login-presentation">
+        <span class="eyebrow light-eyebrow">TECNOLOGIA • AUTONOMIA • INOVAÇÃO</span>
+        <h1>Mobilidade sem limites.<br><span>Possibilidades infinitas.</span></h1>
+        <p>Uma nova perspectiva para acompanhar, planejar e explorar a mobilidade assistiva.</p>
+
+        <div class="login-features">
+          <div><span class="feature-check">✓</span><span><strong>Rotas inteligentes</strong><small>Consulte destinos no mapa</small></span></div>
+          <div><span class="feature-check">✓</span><span><strong>Painel de mobilidade</strong><small>Acompanhe seus indicadores</small></span></div>
+          <div><span class="feature-check">✓</span><span><strong>Histórico pessoal</strong><small>Consulte seus trajetos registrados</small></span></div>
+        </div>
+      </div>
+
+      <form id="loginForm" class="login-card">
+        <div class="login-card-icon">V</div>
+        <span class="eyebrow">ÁREA DO USUÁRIO</span>
+        <h2>Bem-vindo de volta.</h2>
+        <p class="muted">Entre na sua conta para continuar.</p>
+
+        <label for="loginEmail">E-mail</label>
+        <div class="input-with-icon">
+          <span>✉</span>
+          <input id="loginEmail" type="email" autocomplete="username" value="matheus.m@vertex.com" required>
+        </div>
+
+        <label for="loginPassword">Senha</label>
+        <div class="input-with-icon">
+          <span>⌑</span>
+          <input id="loginPassword" type="password" autocomplete="current-password" value="Vertex2026!" required>
+          <button type="button" id="togglePassword" class="password-toggle" aria-label="Mostrar senha">◉</button>
+        </div>
+
+        <p id="loginError" class="form-error" aria-live="polite"></p>
+
+        <button type="submit" class="primary-button login-submit">
+          Entrar na plataforma <span>→</span>
+        </button>
+
+        <div class="login-user-preview">
+          <div class="avatar">MM</div>
+          <div><strong>Matheus Masson</strong><small>Perfil de usuário</small></div>
+          <span class="profile-check">✓</span>
+        </div>
+
+        <p class="login-footnote">VERTEX · Plataforma de mobilidade assistiva</p>
+      </form>
+    </div>
+
+    <div class="login-bottom">
+      <span>VERTEX © 2026</span>
+      <span>Desenvolvido para promover autonomia e acessibilidade</span>
+    </div>
+  </section>
+
+  <!-- APLICAÇÃO -->
+  <div class="app-shell" id="appShell" hidden>
+    <aside class="sidebar" id="sidebar">
+      <a class="brand" href="#" data-page="inicio">
+        <span class="brand-symbol">V</span>
+        <span><strong>VERTEX</strong><small>INTELLIGENT MOBILITY</small></span>
+      </a>
+
+      <div class="menu-label">MENU PRINCIPAL</div>
+
+      <nav class="navigation" aria-label="Navegação principal">
+        <button class="nav-item active" data-page="inicio"><span>⌂</span> Início</button>
+        <button class="nav-item" data-page="rotas"><span>⌖</span> Rotas e GPS</button>
+        <button class="nav-item" data-page="bateria"><span>▰</span> Bateria</button>
+        <button class="nav-item" data-page="historico"><span>◷</span> Histórico</button>
+        <button class="nav-item" data-page="sobre"><span>◇</span> Quem somos</button>
+      </nav>
+
+      <div class="sidebar-bottom">
+        <span class="connection-dot"></span>
+        <div><strong>VERTEX System</strong><small>Plataforma ativa</small></div>
+      </div>
+
+      <div class="sidebar-profile">
+        <div class="avatar" id="sidebarAvatar">MM</div>
+        <div class="sidebar-profile-info">
+          <strong id="sidebarName">Matheus Masson</strong>
+          <small>Usuário</small>
+        </div>
+        <button id="logoutButton" class="logout-button" title="Sair da conta" aria-label="Sair da conta">↪</button>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar">
+        <button class="icon-button mobile-menu" id="menuToggle" aria-label="Abrir menu">☰</button>
+
+        <div class="page-heading">
+          <span class="eyebrow">SISTEMA DE MOBILIDADE ASSISTIVA</span>
+          <h1 id="pageTitle">Painel principal</h1>
+        </div>
+
+        <div class="topbar-actions">
+          <button class="theme-toggle" id="themeToggle" aria-label="Alternar tema">
+            <span id="themeIcon">☾</span><span id="themeLabel">Modo escuro</span>
+          </button>
+
+          <button class="user-chip" id="userChip" title="Perfil do usuário">
+            <span class="avatar small-avatar">MM</span>
+            <span class="user-chip-name"><strong id="topbarName">Matheus Masson</strong><small>Minha conta</small></span>
+            <span>⌄</span>
+          </button>
+        </div>
+      </header>
+
+      <div class="page-container">
+
+        <!-- INÍCIO -->
+        <section class="page active" id="inicio">
+          <div class="welcome-row">
+            <div>
+              <p class="muted welcome-date" id="welcomeDate">SEU PAINEL DE MOBILIDADE</p>
+              <h2>Olá, <span id="welcomeName">Matheus</span>! <span class="wave-emoji">✦</span></h2>
+              <p class="muted">Sua mobilidade, organizada em um só lugar.</p>
+            </div>
+            <span class="version-tag"><span class="version-dot"></span> VERTEX PERSONAL</span>
+          </div>
+
+          <div class="stats-grid">
+            <article class="stat-card">
+              <div class="stat-top"><span class="stat-icon blue-icon">⌖</span><span class="mini-label">LOCALIZAÇÃO</span></div>
+              <h3>UNASP-SP</h3>
+              <p class="muted">Estrada de Itapecerica, São Paulo</p>
+              <button class="inline-link" data-page="rotas">Ver localização <span>↗</span></button>
+            </article>
+
+            <article class="stat-card">
+              <div class="stat-top"><span class="stat-icon green-icon">▰</span><span class="mini-label">BATERIA</span></div>
+              <div class="stat-value-row"><h3 id="batteryValue">85%</h3><span class="battery-state">Nível de referência</span></div>
+              <div class="progress-track"><div class="progress-fill" id="batteryProgress"></div></div>
+              <p class="muted">Indicador de energia</p>
+            </article>
+
+            <article class="stat-card">
+              <div class="stat-top"><span class="stat-icon purple-icon">◷</span><span class="mini-label">SEUS TRAJETOS</span></div>
+              <h3 id="routeCount">3</h3>
+              <p class="muted">Registros no seu histórico</p>
+              <button class="inline-link" data-page="historico">Ver histórico <span>↗</span></button>
+            </article>
+          </div>
+
+          <div class="content-grid home-grid">
+            <article class="panel chair-panel">
+              <div class="panel-heading">
+                <div><span class="eyebrow">MOBILIDADE INTELIGENTE</span><h3>Cadeira de rodas inteligente</h3></div>
+                <span class="soft-badge"><span class="soft-badge-dot"></span> VERTEX</span>
+              </div>
+
+              <div class="chair-visual">
+                <div class="chair-glow"></div>
+                <div class="orbit orbit-one"></div>
+                <div class="orbit orbit-two"></div>
+
+                <svg class="wheelchair" viewBox="0 0 540 370" role="img" aria-label="Ilustração tecnológica de uma cadeira de rodas">
+                  <defs>
+                    <linearGradient id="frame" x1="0" y1="0" x2="1" y2="1">
+                      <stop offset="0%" stop-color="#8eeaff"/>
+                      <stop offset="48%" stop-color="#2199d8"/>
+                      <stop offset="100%" stop-color="#123e72"/>
+                    </linearGradient>
+                    <linearGradient id="seat" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0%" stop-color="#314f77"/>
+                      <stop offset="100%" stop-color="#12233e"/>
+                    </linearGradient>
+                    <linearGradient id="tire" x1="0" y1="0" x2="1" y2="1">
+                      <stop offset="0%" stop-color="#283a53"/>
+                      <stop offset="100%" stop-color="#080f1c"/>
+                    </linearGradient>
+                    <filter id="glow"><feGaussianBlur stdDeviation="4" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+                  </defs>
+
+                  <circle cx="190" cy="263" r="91" fill="url(#tire)" stroke="#3a638e" stroke-width="9"/>
+                  <circle cx="190" cy="263" r="73" fill="none" stroke="#7a9dbd" stroke-width="2"/>
+                  <circle cx="190" cy="263" r="59" fill="none" stroke="#243c5a" stroke-width="3"/>
+                  <g stroke="#52799e" stroke-width="3" opacity=".9">
+                    <line x1="190" y1="190" x2="190" y2="336"/><line x1="117" y1="263" x2="263" y2="263"/>
+                    <line x1="138" y1="211" x2="242" y2="315"/><line x1="138" y1="315" x2="242" y2="211"/>
+                    <line x1="162" y1="195" x2="218" y2="331"/><line x1="122" y1="235" x2="258" y2="291"/>
+                  </g>
+                  <circle cx="190" cy="263" r="13" fill="#80eaff" stroke="#1e6c9c" stroke-width="5"/>
+                  <circle cx="392" cy="315" r="36" fill="url(#tire)" stroke="#6689a9" stroke-width="5"/>
+                  <circle cx="392" cy="315" r="23" fill="none" stroke="#315475" stroke-width="3"/>
+                  <circle cx="392" cy="315" r="7" fill="#80eaff"/>
+                  <path d="M217 115 L302 115 Q318 115 320 131 L327 205 L250 220 L217 142 Z" fill="url(#seat)" stroke="#6e9ec5" stroke-width="4"/>
+                  <path d="M224 122 L297 122 L304 178 L242 189 Z" fill="#42678f" opacity=".55"/>
+                  <path d="M215 205 L345 205 L330 234 L222 234 Z" fill="url(#seat)" stroke="#66c7ef" stroke-width="4"/>
+                  <path d="M218 143 L190 143 L182 179 M214 142 L281 142" fill="none" stroke="url(#frame)" stroke-width="11" stroke-linecap="round"/>
+                  <g fill="none" stroke="url(#frame)" stroke-width="11" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M223 220 L190 263 L310 263 L348 315"/><path d="M312 226 L276 263 L190 263"/>
+                    <path d="M310 230 L324 273"/><path d="M229 223 L254 263"/><path d="M216 143 L216 205"/>
+                  </g>
+                  <path d="M284 240 L284 281 L339 281" fill="none" stroke="url(#frame)" stroke-width="8" stroke-linecap="round"/>
+                  <path d="M315 281 L351 281 L357 290 L312 290 Z" fill="#315a80" stroke="#6ecdf4" stroke-width="3"/>
+                  <rect x="283" y="151" width="31" height="39" rx="6" fill="#0b2039" stroke="#71e8ff" stroke-width="3" filter="url(#glow)"/>
+                  <circle cx="298" cy="162" r="4" fill="#71e8ff"/>
+                  <path d="M291 173 H305 M291 180 H301" stroke="#71e8ff" stroke-width="2"/>
+                  <circle cx="304" cy="108" r="8" fill="#6beaff" filter="url(#glow)"/>
+                  <path d="M304 108 L350 77 L399 77" fill="none" stroke="#6beaff" stroke-width="2" stroke-dasharray="4 5"/>
+                  <text x="405" y="81" font-size="12" fill="#70ddff" font-family="sans-serif">SENSORES</text>
+                  <path d="M340 236 L358 250" stroke="#74dfff" stroke-width="5" stroke-linecap="round"/>
+                  <ellipse cx="268" cy="342" rx="170" ry="8" fill="#35b9ff" opacity=".14"/>
+                </svg>
+
+                <div class="visual-label label-left"><span></span> MOBILIDADE ASSISTIVA</div>
+                <div class="visual-label label-right">VERTEX <strong>01</strong></div>
+              </div>
+
+              <div class="chair-footer">
+                <span><span class="status-dot"></span> Plataforma VERTEX</span>
+                <button class="text-button" data-page="sobre">Conheça o projeto ↗</button>
+              </div>
+            </article>
+
+            <article class="panel quick-panel">
+              <div class="panel-heading"><div><span class="eyebrow">ATALHOS</span><h3>Central de controle</h3></div></div>
+
+              <button class="quick-action" data-page="rotas">
+                <span class="action-icon blue-icon">⌖</span>
+                <span><strong>Planejar trajeto</strong><small>Encontre seu próximo destino</small></span><span class="arrow">↗</span>
+              </button>
+              <button class="quick-action" data-page="bateria">
+                <span class="action-icon green-icon">▰</span>
+                <span><strong>Central de bateria</strong><small>Acompanhe o indicador de energia</small></span><span class="arrow">↗</span>
+              </button>
+              <button class="quick-action" data-page="historico">
+                <span class="action-icon purple-icon">◷</span>
+                <span><strong>Meus trajetos</strong><small>Consulte suas atividades</small></span><span class="arrow">↗</span>
+              </button>
+
+              <div class="destination-card">
+                <div class="destination-card-top"><span>DESTINO EM DESTAQUE</span><span>⌖</span></div>
+                <strong>UNASP — Campus São Paulo</strong>
+                <p>Estrada de Itapecerica, 5859</p>
+                <button class="inline-link" data-page="rotas">Abrir mapa <span>↗</span></button>
+              </div>
+            </article>
+          </div>
+
+          <article class="panel recent-panel">
+            <div class="panel-heading">
+              <div><span class="eyebrow">ATIVIDADE</span><h3>Trajetos recentes</h3></div>
+              <button class="inline-link" data-page="historico">Ver todos <span>→</span></button>
+            </div>
+            <div id="recentRoutes" class="recent-routes"></div>
+          </article>
+        </section>
+
+        <!-- ROTAS -->
+        <section class="page" id="rotas">
+          <div class="section-intro">
+            <span class="eyebrow">NAVEGAÇÃO INTELIGENTE</span>
+            <h2>Rotas e localização</h2>
+            <p class="muted">Pesquise destinos, consulte caminhos e organize seus deslocamentos.</p>
+          </div>
+
+          <div class="content-grid routes-grid">
+            <article class="panel route-form-panel">
+              <div class="panel-heading"><div><span class="eyebrow">SEU PRÓXIMO DESTINO</span><h3>Planejar trajeto</h3></div><span class="panel-heading-icon">⌖</span></div>
+
+              <form id="routeForm">
+                <div class="field-group">
+                  <label for="origin">Ponto de partida</label>
+                  <div class="input-with-icon"><span>⌖</span><input id="origin" type="text" value="UNASP - Campus São Paulo" placeholder="Digite a origem" required></div>
+                </div>
+                <div class="route-connector"><span></span><span></span><span></span></div>
+                <div class="field-group">
+                  <label for="destination">Destino</label>
+                  <div class="input-with-icon"><span>◎</span><input id="destination" type="text" placeholder="Para onde vamos?" required></div>
+                </div>
+                <button class="primary-button" type="submit">Consultar rota no Google Maps <span>↗</span></button>
+              </form>
+
+              <div class="separator-label"><span>OU ESCOLHA UM DESTINO</span></div>
+              <div class="route-list">
+                <button class="route-card" data-destination="UNASP - Campus São Paulo"><span class="route-pin">⌂</span><span><strong>UNASP — Campus São Paulo</strong><small>Estrada de Itapecerica, 5859</small></span><span class="arrow">→</span></button>
+                <button class="route-card" data-destination="Shopping Campo Limpo, São Paulo"><span class="route-pin">◇</span><span><strong>Shopping Campo Limpo</strong><small>São Paulo, SP</small></span><span class="arrow">→</span></button>
+                <button class="route-card" data-destination="Estação Capão Redondo, São Paulo"><span class="route-pin">▤</span><span><strong>Estação Capão Redondo</strong><small>São Paulo, SP</small></span><span class="arrow">→</span></button>
+              </div>
+              <p id="routeMessage" class="form-message" aria-live="polite"></p>
+            </article>
+
+            <article class="panel map-panel">
+              <div class="panel-heading">
+                <div><span class="eyebrow">MAPA INTERATIVO</span><h3>UNASP — São Paulo</h3></div>
+                <span class="map-live-label"><span></span> MAPA ONLINE</span>
+              </div>
+
+              <div class="map-frame">
+                <iframe id="mapFrame"
+                  title="Mapa do UNASP Campus São Paulo"
+                  src="https://maps.google.com/maps?q=UNASP%20Campus%20S%C3%A3o%20Paulo&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                  loading="lazy"
+                  referrerpolicy="no-referrer-when-downgrade"
+                  allowfullscreen>
+                </iframe>
+              </div>
+
+              <div class="map-location-card">
+                <div class="map-location-icon">⌖</div>
+                <div><strong id="mapLocationTitle">UNASP — Campus São Paulo</strong><p id="mapLocationSubtitle">Estrada de Itapecerica, 5859 · São Paulo, SP</p></div>
+                <button id="openGoogleMaps" class="map-open-button" aria-label="Abrir Google Maps">↗</button>
+              </div>
+
+              <p class="map-note">O mapa é fornecido pelo Google Maps. O posicionamento exibido corresponde ao local pesquisado, não à posição ao vivo da cadeira.</p>
+            </article>
+          </div>
+        </section>
+
+        <!-- BATERIA -->
+        <section class="page" id="bateria">
+          <div class="section-intro">
+            <span class="eyebrow">GERENCIAMENTO DE ENERGIA</span>
+            <h2>Central de bateria</h2>
+            <p class="muted">Painel visual do indicador de energia do VERTEX.</p>
+          </div>
+
+          <div class="battery-layout">
+            <article class="panel battery-main">
+              <div class="battery-panel-heading"><span class="eyebrow">NÍVEL DE ENERGIA</span><span class="energy-chip"><span></span> Indicador ativo</span></div>
+
+              <div class="battery-visual-wrap">
+                <div class="battery-halo"></div>
+                <div class="big-battery">
+                  <div class="battery-terminal"></div>
+                  <div class="big-battery-inner" id="bigBatteryFill">
+                    <div class="battery-wave wave-back"></div>
+                    <div class="battery-wave wave-front"></div>
+                  </div>
+                </div>
+              </div>
+
+              <h2 id="bigBatteryValue">85%</h2>
+              <p class="muted">Indicador de energia</p>
+              <div class="progress-track large"><div class="progress-fill" id="batteryProgressLarge"></div></div>
+              <div class="battery-scale"><span>0%</span><span>50%</span><span>100%</span></div>
+              <div class="battery-caption"><span class="battery-caption-dot"></span> Nível de referência do painel</div>
+            </article>
+
+            <article class="panel energy-info-panel">
+              <div class="panel-heading"><div><span class="eyebrow">MONITORAMENTO</span><h3>Informações de energia</h3></div></div>
+              <div class="energy-info-hero"><div class="energy-info-icon">ϟ</div><div><span class="muted">Indicador de carga</span><strong id="batteryDetail">85%</strong></div></div>
+
+              <div class="detail-row"><span>Nível exibido</span><strong id="batteryDetailSecond">85%</strong></div>
+              <div class="detail-row"><span>Estado de carregamento</span><strong>—</strong></div>
+              <div class="detail-row"><span>Autonomia estimada</span><strong>—</strong></div>
+              <div class="detail-row"><span>Comunicação com sensor</span><strong>—</strong></div>
+
+              <div class="energy-tip"><span>✦</span><div><strong>Energia e autonomia</strong><p>A leitura física da bateria poderá ser incorporada ao painel por meio da integração com o hardware.</p></div></div>
+            </article>
+          </div>
+        </section>
+
+        <!-- HISTÓRICO -->
+        <section class="page" id="historico">
+          <div class="section-intro">
+            <span class="eyebrow">REGISTROS DE MOBILIDADE</span>
+            <h2>Meu histórico</h2>
+            <p class="muted">Acompanhe os trajetos associados ao seu perfil.</p>
+          </div>
+
+          <div class="history-summary">
+            <article class="history-stat"><span class="history-stat-icon blue-icon">⌖</span><div><small>TRAJETOS REGISTRADOS</small><strong id="historyTotal">3</strong></div></article>
+            <article class="history-stat"><span class="history-stat-icon green-icon">✓</span><div><small>STATUS DO HISTÓRICO</small><strong>Disponível</strong></div></article>
+            <article class="history-stat"><span class="history-stat-icon purple-icon">◷</span><div><small>USUÁRIO</small><strong id="historyUser">Matheus Masson</strong></div></article>
+          </div>
+
+          <article class="panel history-panel">
+            <div class="panel-heading">
+              <div><span class="eyebrow">ATIVIDADES</span><h3>Trajetos registrados</h3></div>
+              <button class="secondary-button" id="exportHistory">↓ Exportar CSV</button>
+            </div>
+            <div class="table-wrap">
+              <table>
+                <thead><tr><th>Trajeto</th><th>Data e hora</th><th>Origem</th><th>Destino</th><th>Status</th></tr></thead>
+                <tbody id="historyTableBody"></tbody>
+              </table>
+            </div>
+            <div id="emptyHistory" class="empty-state" hidden>
+              <div>⌖</div><h3>Nenhum trajeto registrado</h3><p>Quando você consultar e registrar um trajeto, ele aparecerá aqui.</p>
+              <button class="primary-button" data-page="rotas">Planejar primeiro trajeto</button>
+            </div>
+            <div class="history-footer"><span><span class="status-dot"></span> Histórico associado ao perfil conectado</span><button id="clearHistory" class="text-button danger-text">Limpar histórico</button></div>
+          </article>
+        </section>
+
+        <!-- SOBRE -->
+        <section class="page" id="sobre">
+          <div class="about-hero">
+            <div class="about-hero-orb"></div>
+            <span class="brand-symbol big-brand">V</span>
+            <span class="eyebrow light-eyebrow">TECNOLOGIA • ACESSIBILIDADE • AUTONOMIA</span>
+            <h2>Conheça o VERTEX</h2>
+            <p>Conectando inovação e mobilidade assistiva para explorar novas possibilidades de autonomia.</p>
+            <div class="about-hero-tags"><span>Interface cérebro-máquina</span><span>Mobilidade inteligente</span><span>Acessibilidade</span></div>
+          </div>
+
+          <div class="content-grid about-grid">
+            <article class="panel about-copy-panel">
+              <span class="eyebrow">NOSSA MISSÃO</span>
+              <h3>Mais autonomia.<br>Novas possibilidades.</h3>
+              <p class="muted">O VERTEX é um projeto acadêmico que investiga uma cadeira de rodas controlada por ondas cerebrais através de uma interface cérebro-máquina. A plataforma web foi concebida para reunir informações de mobilidade, visualização de trajetos e indicadores de energia em uma experiência integrada.</p>
+              <div class="mission-highlight"><span>✦</span><strong>Tecnologia desenvolvida com foco nas pessoas.</strong></div>
+            </article>
+
+            <article class="panel">
+              <span class="eyebrow">ARQUITETURA DO PROJETO</span><h3>Tecnologias e componentes</h3>
+              <p class="muted">Uma abordagem multidisciplinar que conecta software, eletrônica e experiência do usuário.</p>
+              <div class="tech-list"><span>Hardware</span><span>Interface Web</span><span>Aplicativo Mobile</span><span>Backend</span><span>Banco de dados</span><span>MQTT / WebSocket</span><span>HTTP / JSON</span><span>Interface cérebro-máquina</span></div>
+            </article>
+          </div>
+
+          <article class="panel team-panel">
+            <div class="team-heading"><div><span class="eyebrow">DESENVOLVIMENTO ACADÊMICO</span><h3>Equipe do projeto</h3><p class="muted">Conheça os integrantes do VERTEX.</p></div><span class="team-count">05 INTEGRANTES</span></div>
+            <div class="team-grid">
+              <div class="team-member"><span>BM</span><strong>Bryan Macedo</strong><small>Desenvolvimento</small></div>
+              <div class="team-member"><span>RB</span><strong>Raphael Brandão</strong><small>Desenvolvimento</small></div>
+              <div class="team-member"><span>G</span><strong>Giovana</strong><small>Desenvolvimento</small></div>
+              <div class="team-member"><span>V</span><strong>Victoria</strong><small>Desenvolvimento</small></div>
+              <div class="team-member"><span>MM</span><strong>Matheus Masson</strong><small>Desenvolvimento</small></div>
+            </div>
+          </article>
+        </section>
+
+        <footer class="footer"><span>VERTEX © 2026</span><span>Mobilidade inteligente · Acessibilidade · Inovação</span></footer>
+      </div>
+    </main>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
